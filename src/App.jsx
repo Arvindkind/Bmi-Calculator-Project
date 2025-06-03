@@ -6,6 +6,7 @@ function App() {
   const [height, setHeight] = useState();
   const [bmi, setBmi] = useState("");
   const [msg, setMsg] = useState("");
+  const [gender, setGender] = useState("");
 
   const calBmi = (e) => {
     e.preventDefault();
@@ -34,11 +35,21 @@ function App() {
         <form onSubmit={calBmi}>
           <div className="radio">
             <label>
-              <input type="radio" name="unit" value="imperial" />
+              <input
+                type="radio"
+                name="unit"
+                value="male"
+                onChange={(e) => setGender(e.target.value)}
+              />
               Male
             </label>
             <label>
-              <input type="radio" name="unit" value="metric" />
+              <input
+                type="radio"
+                name="unit"
+                value="female"
+                onChange={(e) => setGender(e.target.value)}
+              />
               Female
             </label>
           </div>
@@ -71,6 +82,7 @@ function App() {
             </button>
           </div>
           <div className="mag">
+            <h3>Your Gender : {gender}</h3>
             <h3>Your Bmi : {bmi}</h3>
             <p>{msg}</p>
           </div>
