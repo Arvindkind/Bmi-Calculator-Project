@@ -2,18 +2,25 @@ import "./App.css";
 import { useState } from "react";
 
 function App() {
-  const [weight, setWeight] = useState();
-  const [height, setHeight] = useState();
-  const [bmi, setBmi] = useState("");
+  const [weight, setWeight] = useState("");
+  const [height, setHeight] = useState("");
+  const [bmi, setBmi] = useState(0);
   const [msg, setMsg] = useState("");
   const [gender, setGender] = useState("");
 
   const calBmi = (e) => {
     e.preventDefault();
-    if (weight === 0 || height === 0) {
+
+    // let Ht = parseFloat(height);
+    let Ht = parseFloat(height) / 100;
+    let Wt = parseFloat(weight);
+    // let bmi = (Wt / (Ht * Ht)) * 703;
+    let bmi = Wt / (Ht * Ht);
+    if (Ht === 0 || Wt === 0) {
       alert("Please enter you Height and Weight");
+    } else if (isNaN(bmi)) {
+      setBmi(0);
     } else {
-      let bmi = (weight / (height * height)) * 703;
       setBmi(bmi.toFixed(1));
 
       if (bmi < 25) {
@@ -31,7 +38,15 @@ function App() {
   };
   return (
     <div className="App">
+      <h1>
+        {" "}
+        Bmi calclulator
+        <span role="img" aria-label="bmi">
+          🏋️‍♂️
+        </span>
+      </h1>
       <div className="container">
+        <h2>Enter Your Metric Unit</h2>
         <form onSubmit={calBmi}>
           <div className="radio">
             <label>
@@ -40,6 +55,7 @@ function App() {
                 name="unit"
                 value="male"
                 onChange={(e) => setGender(e.target.value)}
+                required
               />
               Male
             </label>
@@ -49,12 +65,13 @@ function App() {
                 name="unit"
                 value="female"
                 onChange={(e) => setGender(e.target.value)}
+                required
               />
               Female
             </label>
           </div>
           <div className="weight">
-            <label htmlFor="weight">Weight (ibl)</label>
+            <label htmlFor="weight">Weight (KG)</label>
             <input
               type="number"
               id="weight"
@@ -64,7 +81,7 @@ function App() {
             />
           </div>
           <div className="height">
-            <label htmlFor="height"> Height (IN)</label>
+            <label htmlFor="height"> Height (CM)</label>
             <input
               type="number"
               id="height"
@@ -77,7 +94,7 @@ function App() {
             <button type="submit" className="btn">
               Submit
             </button>
-            <button className="btn" type="submit" onClick={relode}>
+            <button className="btn" onClick={relode}>
               Relode
             </button>
           </div>
