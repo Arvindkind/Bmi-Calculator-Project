@@ -1,4 +1,4 @@
-import "src/App.css";
+import "./App.css";
 import { useState } from "react";
 
 function App() {
@@ -32,6 +32,16 @@ function App() {
     <div className="App">
       <div className="container">
         <form onSubmit={calBmi}>
+          <div className="radio">
+            <label>
+              <input type="radio" name="unit" value="imperial" />
+              Male
+            </label>
+            <label>
+              <input type="radio" name="unit" value="metric" />
+              Female
+            </label>
+          </div>
           <div className="weight">
             <label htmlFor="weight">Weight (ibl)</label>
             <input
