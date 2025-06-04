@@ -1,6 +1,6 @@
 body {
   background: #f5f6fa;
-  font-family: 'Segoe UI', Arial, sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -10,7 +10,7 @@ body {
   margin: 40px auto;
   background: #fff;
   border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
   padding: 32px 24px;
 }
 
@@ -54,7 +54,8 @@ input[type="radio"] {
   margin-right: 6px;
 }
 
-.weight, .height {
+.weight,
+.height {
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -109,4 +110,39 @@ input[type="number"]:focus {
   font-size: 1.1rem;
   color: #636e72;
   margin-top: 8px;
+}
+
+/* button styles */
+
+.switch-btn {
+  background: #dfe6e9;
+  color: #2d3436;
+  border: 1.5px solid #b2bec3;
+  border-radius: 6px;
+  padding: 10px 24px;
+  font-size: 1rem;
+  margin-right: 8px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+
+.switch-btn.active,
+.switch-btn:focus {
+  background: #0984e3;
+  color: #fff;
+  border: 1.5px solid #0984e3;
+  outline: none;
+}
+
+.switch-btn:hover:not(.active) {
+  background: #b2bec3;
+  color: #2d3436;
+}
+
+.switch-btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 32px;
+  margin-bottom: 20px;
 }
