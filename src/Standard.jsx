@@ -142,6 +142,9 @@ export default function Standard() {
             </div>
             <div className="mag">
               <h3>Your Gender : {gender}</h3>
+              <h3>
+                Your Height : {feet}.{inch}
+              </h3>
               <h3>Your Bmi : {bmi}</h3>
               <p>{msg}</p>
             </div>
